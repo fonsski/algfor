@@ -140,7 +140,7 @@ if (isset($_GET['logout'])) {
     exit();
 }
 
-// Добавляем функции для работы с тестами
+// Функции для работы с тестами
 function getQuestion($id) {
     global $link;
     $stmt = $link->prepare("SELECT * FROM questions WHERE id = ?");
@@ -155,7 +155,7 @@ function getTotalQuestions() {
     return $result->fetch_assoc()['total'];
 }
 
-// Добавляем функции для работы с графикой
+// Функции для работы с графикой
 function saveGraphics($title, $params, $author_id) {
     global $link;
     $stmt = $link->prepare("INSERT INTO graphics (title, params, author_id) VALUES (?, ?, ?)");
