@@ -1,0 +1,68 @@
+/* Стили для опросов */
+.poll-card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.poll-option {
+    margin: 10px 0;
+}
+
+.option-bar {
+    background: #f0f0f0;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.option-fill {
+    background: #3498db;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.option-percent {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.total-votes {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.poll-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.poll-input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.option-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.error {
+    color: #e74c3c;
+    padding: 10px;
+    margin: 10px 0;
+    background: #fdf7f7;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}

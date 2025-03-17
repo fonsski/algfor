@@ -1,0 +1,40 @@
+/* Стили для гостевой книги */
+.guestbook-form {
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.guestbook-entry {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.entry-meta {
+    margin-top: 10px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.entry-meta span {
+    margin-right: 15px;
+}
+
+/* Кнопки форматирования */
+.format-buttons {
+    margin: 10px 0;
+}
+
+.format-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
