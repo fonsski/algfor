@@ -8,15 +8,15 @@ if (!isset($_SESSION['user_id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $type = filter_input(INPUT_POST, 'function', FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Изменено с 'shape' на 'function'
+    $type = filter_input(INPUT_POST, 'function', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $vertices = $_POST['vertices'] ?? '[]';
     $calculations = $_POST['calculations'] ?? '{}';
     $params = $_POST['params'] ?? '{}';
-    
+
     try {
         $stmt = $link->prepare("INSERT INTO graphics (title, type, vertices, calculations, params, author_id) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssi", $title, $type, $vertices, $calculations, $params, $_SESSION['user_id']);
-        
+
         if ($stmt->execute()) {
             echo json_encode(['success' => true]);
         } else {
@@ -38,7 +38,7 @@ $userGraphics = getGraphics();
         <h2>Построение графиков функций</h2>
         <form id="graphicsForm" method="post">
             <input type="text" name="title" placeholder="Название графика" required class="graphics-input">
-            
+
             <div class="shape-controls">
                 <label>
                     Тип функции:
@@ -49,11 +49,11 @@ $userGraphics = getGraphics();
                         <option value="exponential">Показательная (aˣ)</option>
                     </select>
                 </label>
-                
+
                 <div id="functionParams" class="function-params">
-                    <!-- Параметры функции будут добавляться динамически -->
+                    <!-- Параметры добавляются динамически -->
                 </div>
-                
+
                 <div class="graph-settings">
                     <label>
                         Цвет графика:
@@ -65,13 +65,13 @@ $userGraphics = getGraphics();
                     </div>
                 </div>
             </div>
-            
+
             <button type="submit" class="graphics-button">Сохранить</button>
         </form>
     </div>
 
     <div class="canvas-container">
-        <canvas id="functionCanvas" width="800" height="600"></canvas>
+        <canvas id="algebraCanvas" width="800" height="600"></canvas>
         <div id="calculations" class="calculations">
             <h3>Информация о функции</h3>
             <div id="functionInfo"></div>
@@ -79,23 +79,21 @@ $userGraphics = getGraphics();
     </div>
 
     <?php if (!empty($userGraphics)): ?>
-    <div class="saved-graphics">
-        <h3>Сохраненные работы</h3>
-        <div class="graphics-grid">
-            <?php foreach ($userGraphics as $graphic): ?>
-                <div class="graphic-card">
-                    <h4><?= htmlspecialchars($graphic['title']) ?></h4>
-                    <p>Создано: <?= formatDate($graphic['created_at']) ?></p>
-                    <button class="load-graphic" data-params='<?= htmlspecialchars($graphic['params']) ?>'>
-                        Загрузить
-                    </button>
-                </div>
-            <?php endforeach; ?>
+        <div class="saved-graphics">
+            <h3>Сохраненные работы</h3>
+            <div class="graphics-grid">
+                <?php foreach ($userGraphics as $graphic): ?>
+                    <div class="graphic-card">
+                        <h4><?= htmlspecialchars($graphic['title']) ?></h4>
+                        <p>Создано: <?= formatDate($graphic['created_at']) ?></p>
+                        <button class="load-graphic" data-params='<?= htmlspecialchars($graphic['params']) ?>'>
+                            Загрузить
+                        </button>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
-    </div>
     <?php endif; ?>
 </div>
 
-<script src="/assets/js/geometry-calculations.js"></script>
-<script src="/assets/js/graphics.js"></script>
 <script src="/assets/js/function-graphs.js"></script>

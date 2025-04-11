@@ -223,6 +223,12 @@ button:hover, .button:hover {
     margin: 20px 0;
 }
 
+#algebraCanvas {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
 /* Стили для кнопок форматирования */
 .format-buttons {
     margin: 10px 0;

@@ -90,8 +90,8 @@ php vendor/functions/seed.php
 - `isAdmin()` - проверка прав администратора
 - `sanitizeInput($data)` - очистка входных данных
 - `renderMarkdown($text)` - преобразование Markdown в HTML
-- `saveGeometryWork($userId, $data)` - сохранение геометрических работ
-- `loadGeometryWork($workId)` - загрузка сохраненной работы
+- `saveAlgebraWork($userId, $data)` - сохранение алгебраических работ
+- `loadAlgebraWork($workId)` - загрузка сохраненной работы
 
 ### Работа с базой данных
 - `dbConnect()` - установка соединения с базой данных
@@ -110,7 +110,7 @@ php vendor/functions/seed.php
 - `json_encode/decode()` - работа с JSON
 
 ### JavaScript методы
-- `drawShape(type, params)` - отрисовка геометрических фигур
+- `drawShape(type, params)` - отрисовка алгебраических графиков
 - `updateCanvas()` - обновление холста
 - `saveWork()` - сохранение работы
 - `loadWork(id)` - загрузка работы

@@ -100,7 +100,8 @@ class FunctionGraph {
 
 // Инициализация
 document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('functionCanvas');
+    // Обновлено: теперь ищем холст с id "algebraCanvas"
+    const canvas = document.getElementById('algebraCanvas');
     const graph = new FunctionGraph(canvas);
     
     const functionSelect = document.getElementById('functionSelect');

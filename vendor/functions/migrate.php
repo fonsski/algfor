@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db_name = "learnproject";
+$db_name = "algfor";
 
 // Подключение к MySQL
 $link = new mysqli($host, $user, $pass);
@@ -73,7 +73,7 @@ $sql = "CREATE TABLE IF NOT EXISTS questions (
 )";
 $link->query($sql);
 
-// Создание таблицы графических элементов
+// Изменено: Создание таблицы алгебраических графиков
 $sql = "CREATE TABLE IF NOT EXISTS graphics (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,

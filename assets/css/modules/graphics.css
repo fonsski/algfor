@@ -40,7 +40,8 @@
   justify-content: center;
 }
 
-#geometryCanvas {
+/* Изменено: заменён селектор холста */
+#algebraCanvas {
   border: 1px solid #ddd;
   border-radius: 4px;
   cursor: crosshair;

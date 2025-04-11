@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Подключение к базе данных
-$link = new mysqli("localhost", "root", "", "learnproject");
+$link = new mysqli("localhost", "root", "", "algfor");
 if ($link->connect_error) {
     die("Ошибка подключения: " . $link->connect_error);
 }
@@ -17,7 +17,7 @@ if (isset($_GET['logout'])) {
     exit();
 }
 
-// Функции для работы с заметками 
+// Функции для работы с заметками
 
 # Функция для получения всех заметок
 function getNotes()
@@ -155,7 +155,7 @@ function getTotalQuestions() {
     return $result->fetch_assoc()['total'];
 }
 
-// Функции для работы с графикой
+// Функции для работы с алгебраическими графиками
 function saveGraphics($title, $params, $author_id) {
     global $link;
     $stmt = $link->prepare("INSERT INTO graphics (title, params, author_id) VALUES (?, ?, ?)");
